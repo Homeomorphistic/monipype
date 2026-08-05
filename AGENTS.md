@@ -1,6 +1,4 @@
-# monipype
-
-## Development setup
+# Project setup
 
 Install the project's Git hooks after installing the development dependencies:
 
@@ -8,4 +6,5 @@ Install the project's Git hooks after installing the development dependencies:
 uv run pre-commit install
 ```
 
-This installs the configured pre-commit and pre-push hooks.
+The command installs both the pre-commit and pre-push hooks defined in
+`.pre-commit-config.yaml`.
