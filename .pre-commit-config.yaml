@@ -17,6 +17,11 @@ repos:
         stages: [pre-commit]
       - id: ruff-format
         stages: [pre-commit]
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    rev: v0.0.69
+    hooks:
+      - id: ty
+        stages: [pre-push]
   - repo: local
     hooks:
       - id: pytest
