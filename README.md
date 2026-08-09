@@ -1,11 +1,21 @@
 # monipype
 
+## Running the project
+
+monipype requires Python 3.14 or later. Run it from the project root with uv:
+
+```bash
+uv run monipype
+```
+
 ## Development setup
 
-Install the project's Git hooks after installing the development dependencies:
+Project commands are run with `uv run`. Install the Git hooks after cloning the
+repository:
 
 ```bash
 uv run pre-commit install
 ```
 
-This installs the configured pre-commit and pre-push hooks.
+The hooks validate commit messages, lint and format code before commits, and run
+type checks and tests before pushes.
