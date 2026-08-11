@@ -38,3 +38,8 @@ uv run pytest
 
 Run the applicable validation commands before completing changes. Code will be
 checked with the same commands when committed and pushed.
+
+# Commits
+
+All agents must follow the Conventional Commits specification. Compose a
+compliant commit message directly; do not rely on Commitizen being installed.

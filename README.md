@@ -19,3 +19,15 @@ uv run pre-commit install
 
 The hooks validate commit messages, lint and format code before commits, and run
 type checks and tests before pushes.
+
+## Committing changes
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/).
+Write a compliant commit message yourself, or optionally use Commitizen's
+interactive prompt if `cz` is installed on your machine:
+
+```bash
+cz commit
+```
+
+Commitizen is a convenience, not a required project dependency.
