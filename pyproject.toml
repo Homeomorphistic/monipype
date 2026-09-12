@@ -20,6 +20,7 @@ build-backend = "uv_build"
 dev = [
     "pre-commit>=4.6.1",
     "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
     "ruff>=0.16.2",
     "ty>=0.0.69",
 ]
@@ -31,3 +32,11 @@ version_scheme = "pep440"
 version_provider = "uv"
 update_changelog_on_bump = true
 major_version_zero = true
+
+[tool.coverage.run]
+source = ["monipype"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
