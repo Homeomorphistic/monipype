@@ -26,6 +26,9 @@ dev = [
     "ty>=0.0.69",
 ]
 
+[tool.pytest]
+testpaths = ["tests"]
+
 [tool.commitizen]
 name = "cz_conventional_commits"
 tag_format = "$version"
