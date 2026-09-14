@@ -24,6 +24,7 @@ dev = [
     "pytest-cov>=7.1.0",
     "ruff>=0.16.2",
     "ty>=0.0.69",
+    "xenon>=0.9.3",
 ]
 
 [tool.pytest]
