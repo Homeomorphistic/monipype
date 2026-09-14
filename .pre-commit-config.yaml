@@ -8,25 +8,35 @@ repos:
     rev: v4.17.0
     hooks:
       - id: commitizen
+        name: commit msg
         stages: [commit-msg]
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.16.1
     hooks:
       - id: ruff-check
+        name: linter
         args: [--fix]
         stages: [pre-commit]
       - id: ruff-format
+        name: formatter
+        stages: [pre-commit]
+  - repo: https://github.com/rubik/xenon
+    rev: v0.9.3
+    hooks:
+      - id: xenon
+        name: code complexity monitor
+        args: ['--max-absolute=B', '--max-modules=B', '--max-average=A']
         stages: [pre-commit]
   - repo: https://github.com/astral-sh/ty-pre-commit
     rev: v0.0.69
     hooks:
       - id: ty
-        name: static type checking
+        name: static type checker
         stages: [pre-push]
   - repo: local
     hooks:
       - id: pytest
-        name: unit testing
+        name: unit tests
         entry: uv run pytest --cov
         language: system
         pass_filenames: false
@@ -40,7 +50,7 @@ repos:
         always_run: true
         stages: [pre-push]
       - id: mutmut
-        name: mutation testing
+        name: mutation tests
         entry: uv run mutmut run
         language: system
         pass_filenames: false
