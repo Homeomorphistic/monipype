@@ -36,6 +36,11 @@ uv run ty check
 uv run pytest
 ```
 
+The pre-push hook also runs a duplicate code check on Python files, configured
+in `.jscpd.json`. It requires `jscpd` (installed by pre-commit via Node.js, so
+Node must be present). With a threshold of 3%, pushes fail when more than 3% of
+the Python code is duplicated.
+
 Run the applicable validation commands before completing changes. Code will be
 checked with the same commands when committed and pushed.
 

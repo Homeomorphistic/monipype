@@ -1,0 +1,8 @@
+{
+    "minLines": 5,
+    "minTokens": 50,
+    "threshold": 3,
+    "format": ["python"],
+    "reporters": ["console"],
+    "ignore": [".git/**", ".venv/**", "mutants/**"]
+}
