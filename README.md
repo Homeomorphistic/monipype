@@ -18,7 +18,7 @@ uv run pre-commit install
 ```
 
 The hooks validate commit messages, lint and format code before commits, and run
-type checks and tests before pushes.
+type checks, tests, and a dependency audit before pushes.
 
 ## Committing changes
 

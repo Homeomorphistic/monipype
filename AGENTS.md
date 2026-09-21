@@ -41,6 +41,10 @@ in `.jscpd.json`. It requires `jscpd` (installed by pre-commit via Node.js, so
 Node must be present). With a threshold of 3%, pushes fail when more than 3% of
 the Python code is duplicated.
 
+The pre-push hook also runs a dependency audit with pip-audit against the
+project path (`.pre-commit-config.yaml`). It needs network access to the
+vulnerability feed.
+
 Run the applicable validation commands before completing changes. Code will be
 checked with the same commands when committed and pushed.
 

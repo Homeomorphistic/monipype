@@ -33,6 +33,13 @@ repos:
       - id: ty
         name: static type checker
         stages: [pre-push]
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.10.1
+    hooks:
+      - id: pip-audit
+        name: dependency audit
+        args: [.]
+        stages: [pre-push]
   - repo: local
     hooks:
       - id: jscpd
