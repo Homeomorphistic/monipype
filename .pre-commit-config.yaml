@@ -4,6 +4,12 @@ default_install_hook_types:
   - pre-push
 
 repos:
+  - repo: https://github.com/betterleaks/betterleaks
+    rev: v1.8.1
+    hooks:
+      - id: betterleaks
+        name: secret scanner
+        stages: [pre-commit]
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.17.0
     hooks:
