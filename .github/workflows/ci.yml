@@ -74,8 +74,13 @@ jobs:
       - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
+      - uses: actions/setup-go@v6
+        with:
+          go-version: stable
       - name: Scan for secrets
-        run: docker run --rm -v "$PWD":/src ghcr.io/betterleaks/betterleaks:latest git /src
+        run: |
+          go install github.com/betterleaks/betterleaks@v1.8.1
+          betterleaks git .
 
   mutation:
     runs-on: ubuntu-latest
