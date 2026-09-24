@@ -1,0 +1,32 @@
+name: opencode-review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  review:
+    if: contains(fromJSON('["OWNER", "COLLABORATOR"]'), github.event.pull_request.author_association)
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: read
+      issues: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Run opencode
+        uses: anomalyco/opencode/github@latest
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        with:
+          model: openrouter/nvidia/nemotron-3-ultra-550b-a55b:free
+          prompt: |
+            Review this pull request:
+            - Check for code quality issues and potential bugs
+            - Verify adherence to the project's standards in AGENTS.md
+            - Suggest improvements
