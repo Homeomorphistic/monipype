@@ -1,54 +1,24 @@
-# Project commands
+# AGENTS.md
 
-Use `uv run` for all Python commands and project tools. Do not invoke tools such
-as Ruff, ty, or pytest directly.
+monipype turns the expense data I collect on my phone into clean, structured
+data I can budget from. For more, read README.md.
 
-Run the project from the repository root:
+## Commands
 
-```bash
-uv run monipype
-```
+Prefix every tool invocation with `uv run`. Never call `ruff`, `ty`, or `pytest`
+directly.
 
-# Project setup
+Run the project with `uv run monipype`.
 
-Install the project's Git hooks after installing the development dependencies:
+Install the hooks once in the main checkout with `uv run pre-commit install`.
+Hooks are shared by every worktree, so this is not repeated per worktree.
 
-```bash
-uv run pre-commit install
-```
+The validation check list lives in `.pre-commit-config.yaml`. The hooks run it
+on commit and on push. Do not bypass them with `--no-verify`; fix the cause and
+commit again.
 
-The command installs the commit-msg, pre-commit, and pre-push hooks defined in
-`.pre-commit-config.yaml`. Commitizen validates commit messages.
+## Working agreement
 
-# Validation
-
-The pre-commit hook runs these commands in order:
-
-```bash
-uv run ruff check --fix
-uv run ruff format
-```
-
-The pre-push hook runs these commands in order:
-
-```bash
-uv run ty check
-uv run pytest
-```
-
-The pre-push hook also runs a duplicate code check on Python files, configured
-in `.jscpd.json`. It requires `jscpd` (installed by pre-commit via Node.js, so
-Node must be present). With a threshold of 3%, pushes fail when more than 3% of
-the Python code is duplicated.
-
-The pre-push hook also runs a dependency audit with pip-audit against the
-project path (`.pre-commit-config.yaml`). It needs network access to the
-vulnerability feed.
-
-Run the applicable validation commands before completing changes. Code will be
-checked with the same commands when committed and pushed.
-
-# Commits
-
-All agents must follow the Conventional Commits specification. Compose a
-compliant commit message directly; do not rely on Commitizen being installed.
+- One issue per worktree.
+- Never switch a checkout that another agent or a test run is using.
+- Never force-push or delete `main`.

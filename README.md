@@ -1,33 +1,20 @@
 # monipype
 
-## Running the project
+monipype turns the expense data I collect on my phone into clean, structured
+data I can budget from. It reads a spreadsheet export of my transactions,
+normalizes it into a dataset, and gets out of the way.
 
-monipype requires Python 3.14 or later. Run it from the project root with uv:
+It is a personal project, built for my own app and my own spending. There is
+no attempt at generality yet; if that changes, this description will change
+with it.
+
+Further along I plan to run ML algorithms over that data, for prediction and for
+classification.
+
+## Running it
+
+Requires Python 3.14 or later. Run it from the repository root:
 
 ```bash
 uv run monipype
 ```
-
-## Development setup
-
-Project commands are run with `uv run`. Install the Git hooks after cloning the
-repository:
-
-```bash
-uv run pre-commit install
-```
-
-The hooks validate commit messages, lint and format code before commits, and run
-type checks, tests, and a dependency audit before pushes.
-
-## Committing changes
-
-This project uses [Conventional Commits](https://www.conventionalcommits.org/).
-Write a compliant commit message yourself, or optionally use Commitizen's
-interactive prompt if `cz` is installed on your machine:
-
-```bash
-cz commit
-```
-
-Commitizen is a convenience, not a required project dependency.
